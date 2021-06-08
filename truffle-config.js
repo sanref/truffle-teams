@@ -1,3 +1,6 @@
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+const teamsMnemonic =
+  "obey tank essence barely attack wild stuff taste dizzy unveil output rack";
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -72,6 +75,18 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
+    teams: {
+      provider: function () {
+        return new HDWalletProvider(
+          teamsMnemonic,
+          "https://sandbox.truffleteams.com/c028d77a-d5a8-4569-b08d-51930ce472ad",
+          0,
+          10,
+          false
+        );
+      },
+      network_id: 1,
+    },
   },
 
   // Set default mocha options here, use special reporters etc.
